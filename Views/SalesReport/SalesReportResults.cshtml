@@ -1,0 +1,30 @@
+﻿@model GourmetShopWebApp.ViewModels.SalesReportViewModel
+
+@{
+    ViewData["Title"] = "Sales Report Results";
+}
+
+<h1>Sales Report Results</h1>
+<p>Report for @Model.StartDate.ToString("g") to @Model.EndDate.ToString("g")</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Total Quantity</th>
+            <th>Total Sales</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ReportData)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.TotalQuantity</td>
+                <td>@item.TotalSales.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Total Sales: @Model.TotalSales.ToString("C")</h3>
